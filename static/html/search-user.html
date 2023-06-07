@@ -1,0 +1,57 @@
+{{template "header.html"}}
+
+<div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><= Back</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"></a>
+              </li>
+            </ul>
+            <div style="width: 20px;"></div>
+
+          </div>
+        </div>
+      </nav>
+
+      {{if .Result}}
+      <div class="container-fluid w-75 mt-5">
+        <div class="d-flex justify-content-between">
+            <h3><span>{{ .Count }}</span> Founded</h3>
+        </div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">User ID</th>
+              <th scope="col">User Name</th>
+              <th scope="col">Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{range .Users}}
+            <tr>
+              <th scope="row">{{ .ID }}</th>
+              <td class="text-success">{{ .Name }}</td>
+              <td>{{ .Email }}</td>
+            </tr>
+            {{end}}
+          </tbody>
+        </table>
+      </div>
+      {{else}}
+        <div class="text-center mt-4">
+          <h1 class="text-danger text-decoration-underline">OOps..!! <span class="font-weight-bold ">{{ .Count }}</span> Result Fond on database</h1>
+          <p class="text-monospace">Check name and serach again</p>
+        </div>
+      {{end}}
+</div>
+
+{{template "footer.html"}}

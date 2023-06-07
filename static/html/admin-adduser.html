@@ -1,0 +1,27 @@
+{{template "header.html"}}
+
+<div class="text-center mt-5">
+    <h1>ADD USER</h1>
+    <p>ADD NEW USER</p>
+    <form method="post" action="/admin/add-user" class="w-25 m-auto pt-4">
+        <div class="mb-4">
+          <label for="exampleInputEmail1" class="form-label">Enter User Full Name</label>
+          <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <div class="form-text text-danger">{{ .error }}</div>
+        </div>
+        <div class="mb-4">
+          <label for="exampleInputPassword1" class="form-label">Enter User Email</label>
+          <input name="email" type="email" class="form-control" id="exampleInputPassword1">
+          <div class="form-text text-danger">{{ .error }}</div>
+        </div>
+        <div class="mb-4">
+            <label for="exampleInputPassword1" class="form-label">Enter User password</label>
+            <input name="password" type="password" class="form-control" id="exampleInputPassword1">
+            <div class="form-text text-danger">{{ .error }}</div>
+        </div>
+        <button type="submit" class="btn btn-success mt-3 w-50  ">Add Now</button>
+        <!-- <a href="/login" class="nav-link mt-2">Add Now</a> -->
+    </form>
+</div>
+
+{{template "footer.html"}}

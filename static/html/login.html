@@ -1,0 +1,23 @@
+{{template "header.html"}}
+
+<div class="text-center mt-5">
+    <h1>Login Page</h1>
+    <p>Welcome Back</p>
+    <form method="post" action="/login" class="w-25 m-auto pt-4">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text text-danger">{{ .error }}</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input name="password" type="password" class="form-control" id="exampleInputPassword1">
+          <div id="emailHelp" class="form-text text-danger">{{ .error }}</div>
+        </div>
+        <button type="submit" class="btn btn-success mt-3 w-25">Submit</button>
+        <a href="/signup" class="nav-link mt-2">Create Account</a>
+    </form>
+      
+</div>
+
+{{template "footer.html"}}

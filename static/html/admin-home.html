@@ -1,0 +1,63 @@
+{{template "header.html"}}
+
+<div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Admin Panel</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Manage Admins</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"></a>
+              </li>
+            </ul>
+              <form action="/admin/search-user" method="get">
+                <input type="text" class="" placeholder="Search" name="val" id="">
+                <button type="submit">Search</button>
+              </form>
+            <div style="width: 20px;"></div>
+            <a href="" class="btn btn-warning me-3">LogOut</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container-fluid w-75 mt-5">
+        <div class="d-flex justify-content-between">
+            <h3>Users</h3>
+            <a href="/admin/add-user" class="btn btn-success">Add User</a>
+        </div>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">User ID</th>
+                <th scope="col">User Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Control User</th>
+              </tr>
+            </thead>
+            <tbody>
+                {{range .Users}}
+              <tr>
+                <th scope="row">{{ .ID }}</th>
+                <td>{{ .Name }}</td>
+                <td>{{ .Email }}</td>
+                <div>
+                  <td><a href="/admin/update-user/{{.ID}}" class="btn btn-danger">Update User</a></td>
+                <td><a href="/admin/remove-user/{{.ID}}" class="btn btn-danger">Remove User</a></td>
+                </div>
+              </tr>
+              {{end}}
+            </tbody>
+          </table>
+      </div>
+</div>
+
+{{template "footer.html"}}

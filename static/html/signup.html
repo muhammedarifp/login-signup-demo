@@ -1,0 +1,32 @@
+{{template "header.html"}}
+
+<div class="text-center mt-5">
+    <h1>Create Account</h1>
+    <p>Welcome Our World</p>
+    <form method="post" action="/signup" class="w-25 m-auto pt-4">
+        <div class="mb-4">
+          <label for="exampleInputEmail1" class="form-label">Enter Your Full Name</label>
+          <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <div class="form-text text-danger">{{ .error }}</div>
+        </div>
+        <div class="mb-4">
+          <label for="exampleInputPassword1" class="form-label">Enter Your Email</label>
+          <input name="email" type="email" class="form-control" id="exampleInputPassword1">
+          <div class="form-text text-danger">{{ .error }}</div>
+        </div>
+        <div class="mb-4">
+            <label for="exampleInputPassword1" class="form-label">Enter your password</label>
+            <input name="pass1" type="password" class="form-control" id="exampleInputPassword1">
+            <div class="form-text text-danger">{{ .error }}</div>
+        </div>
+        <div class="mb-4">
+            <label for="exampleInputPassword1" class="form-label">ReEnter your password</label>
+            <input name="pass2" type="password" class="form-control" id="exampleInputPassword1">
+            <div class="form-text text-danger">{{ .error }}</div>
+        </div>
+        <button type="submit" class="btn btn-success mt-3 w-50  ">Create Account</button>
+        <a href="/login" class="nav-link mt-2">Login Now</a>
+    </form>
+</div>
+
+{{template "footer.html"}}
